@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    function del(filename){
+        var var1 = $.ajax({
+            type: "POST",
+            url: "/delete",
+            async: false,
+            data: {mydata: filename}
+        });
+    location.reload(true)
+    }
+    function download(file)
+    {
+
+        window.location.href=file;
+    }
+    </script>
+</head>
+<body>
+<label id="jsstatus">-</label>
+<table>
+{% for i in range(list|count) %}
+ <tr>
+<td>
+<a href="{{ list[i]}}" > <img id="{{FileName[i]}}" class="img-responsive img-circle" src="{{ list[i]}}" alt="../templates/flowers1.png" height="100" width="100" data-toggle="tooltip" title="Click Me"/></a><a href = "{{ list[i]}}" data-toggle="tooltip" title="{{LastModified}}"></a>
+</td>
+ <td>
+      <input type="button" value="Download" onclick = download('{{list[i]}}')>
+ </td>
+     <td>
+    <input type="button" value="Delete" onclick = del('{{FileName[i]}}')>
+ </td>
+ </tr>
+ {% endfor %}
+</table>
+</body>
+</html>

@@ -11,9 +11,9 @@ from stat import *
 app=Flask(__name__)
 
 '''
-session = Session(aws_access_key_id='AKIAJFSGZLTK4XBIFB6Q',
-                  aws_secret_access_key='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',
-                  region_name='us-west-2')
+session = Session(aws_access_key_id='',
+                  aws_secret_access_key='',
+                  region_name='')
 
 ec2 = session.resource('s3')
 ec2_us_west_2 = session.resource('ec2', region_name='us-west-2')
@@ -46,9 +46,9 @@ def home():
         #return 'testing'
         #return render_template('home2.html')
         filename=request.files['file']
-        session = Session(aws_access_key_id='AKIAJFSGZLTK4XBIFB6Q',
-                  aws_secret_access_key='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',
-                   region_name='us-east-1')
+        session = Session(aws_access_key_id='A',
+                  aws_secret_access_key='',
+                   region_name='')
         s3= session.resource('s3')
         s3.create_bucket(Bucket='thisonebucket')
         contents=filename.read()
@@ -68,8 +68,8 @@ def view():
     rSet = []
     fileNameSet=[]
     if request.method == "GET":
-        session = Session(aws_access_key_id='AKIAJFSGZLTK4XBIFB6Q',
-                      aws_secret_access_key='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',
+        session = Session(aws_access_key_id='',
+                      aws_secret_access_key='+2C',
                        region_name='us-east-1')
         s3= session.resource('s3')
         bucket = s3.Bucket('thisismythirdPaush1123')
@@ -93,8 +93,8 @@ def delete():
     if request.method == "POST":
         return 'test'
         FileId=request.form('mydata')
-        session = Session(aws_access_key_id='AKIAJFSGZLTK4XBIFB6Q',
-                  aws_secret_access_key='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',
+        session = Session(aws_access_key_id='',
+                  aws_secret_access_key='+2C',
                    region_name='us-east-1')
         s3 = session.resource('s3')
         s3.Object('thisismythirdPaush1123',FileId).delete()
@@ -105,9 +105,9 @@ def delete():
      if request.method=="POST":
         FileId=request.form['mydata']
         #return str(FileId)
-        session=Session(aws_access_key_id='AKIAJFSGZLTK4XBIFB6Q',
-                  aws_secret_access_key='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',
-                   region_name='us-east-1')
+        session=Session(aws_access_key_id='',
+                  aws_secret_access_key='',
+                   region_name='')
         s3=session.resource('s3')
         s3.Object('thisismythirdPaush1123',FileId).delete()
 
